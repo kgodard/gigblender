@@ -16,4 +16,9 @@ Preferences:
 
 ________________________
 
+
+## Setup
+* copy config/application.yml.example to config/application.yml
+* copy config/database.yml.example to config/database.yml
+
 License
