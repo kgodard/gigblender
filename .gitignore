@@ -75,5 +75,9 @@ pickle-email-*.html
 
 # vim artifacts
 **.swp
-/config/application.yml
+
+# Ignore database configuration
 /config/database.yml
+
+# Ignore application configuration
+/config/application.yml
