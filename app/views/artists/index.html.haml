@@ -1,0 +1,20 @@
+%h1 Listing Artists
+
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Website
+      %th
+  %tbody
+    - @artists.each do |artist|
+      %tr
+        %td= link_to artist.name, artist
+        %td= artist.website
+        %td
+          = link_to 'Edit', edit_artist_path(artist), :class => 'btn btn-mini'
+          = link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
+
+%br
+
+= link_to 'New Artist', new_artist_path, :class => 'btn btn-primary'

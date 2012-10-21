@@ -16,10 +16,12 @@ gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
 gem "capybara", ">= 1.1.2", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
+gem "awesome_print", :group => :development
 gem "bootstrap-sass", ">= 2.1.0.0"
 gem "hominid", ">= 3.0.5"
 gem "devise", ">= 2.1.2"
+gem 'omniauth-twitter'
 gem "simple_form", ">= 2.0.4"
 gem "quiet_assets", ">= 1.0.1", :group => :development
-gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
+# gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem "figaro"

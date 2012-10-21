@@ -1,0 +1,22 @@
+= simple_form_for(@artist) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :website
+    = f.input :phone
+    = f.input :covers_percentage
+    = f.input :description
+    = f.input :available_sunday
+    = f.input :available_monday
+    = f.input :available_tuesday
+    = f.input :available_wednesday
+    = f.input :available_thursday
+    = f.input :available_friday
+    = f.input :available_saturday
+    = f.input :user_id
+    = f.input :zipcode_id
+    = f.input :image
+
+  .form-actions
+    = f.button :submit

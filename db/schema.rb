@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020160938) do
+ActiveRecord::Schema.define(:version => 20121021152633) do
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "phone"
+    t.string   "covers_percentage"
+    t.text     "description"
+    t.boolean  "available_sunday"
+    t.boolean  "available_monday"
+    t.boolean  "available_tuesday"
+    t.boolean  "available_wednesday"
+    t.boolean  "available_thursday"
+    t.boolean  "available_friday"
+    t.boolean  "available_saturday"
+    t.integer  "user_id"
+    t.integer  "zipcode_id"
+    t.string   "image"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -31,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20121020160938) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

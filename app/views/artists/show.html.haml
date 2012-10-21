@@ -1,0 +1,51 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @artist.name
+%p
+  %b Website:
+  = @artist.website
+%p
+  %b Phone:
+  = @artist.phone
+%p
+  %b Covers percentage:
+  = @artist.covers_percentage
+%p
+  %b Description:
+  = @artist.description
+%p
+  %b Available sunday:
+  = @artist.available_sunday
+%p
+  %b Available monday:
+  = @artist.available_monday
+%p
+  %b Available tuesday:
+  = @artist.available_tuesday
+%p
+  %b Available wednesday:
+  = @artist.available_wednesday
+%p
+  %b Available thursday:
+  = @artist.available_thursday
+%p
+  %b Available friday:
+  = @artist.available_friday
+%p
+  %b Available saturday:
+  = @artist.available_saturday
+%p
+  %b User:
+  = @artist.user_id
+%p
+  %b Zipcode:
+  = @artist.zipcode_id
+%p
+  %b Image:
+  = @artist.image
+
+= link_to 'Edit', edit_artist_path(@artist)
+\|
+= link_to 'Back', artists_path
