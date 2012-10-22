@@ -118,6 +118,7 @@ GEM
     mini_magick (3.4)
       subexec (~> 0.2.1)
     multi_json (1.3.6)
+    mysql2 (0.3.11)
     nokogiri (1.5.5)
     oauth (0.4.7)
     omniauth (1.1.1)
@@ -194,7 +195,6 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     subexec (0.2.2)
     thin (1.5.0)
       daemons (>= 1.0.9)
@@ -239,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mini_magick
+  mysql2
   omniauth-twitter
   rails (= 3.2.8)
   rails3-jquery-autocomplete
@@ -246,7 +247,6 @@ DEPENDENCIES
   ruby_parser (>= 2.3.1)
   sass-rails (~> 3.2.3)
   simple_form (>= 2.0.4)
-  sqlite3
   thin (>= 1.5.0)
   uglifier (>= 1.0.3)
   will_paginate
