@@ -4,6 +4,10 @@ Gigblender::Application.routes.draw do
   # resources :users
   resources :artists
 
+  resources :users do
+    resources :artists
+  end
+
   # authenticated :user do
   #   root :to => 'home#index'
   # end
