@@ -1,22 +1,27 @@
-= simple_form_for(@artist) do |f|
+= simple_form_for [@user, @artist], :html => { :class => 'form-horizontal', :multipart => true } do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :website
-    = f.input :phone
-    = f.input :covers_percentage
-    = f.input :description
-    = f.input :available_sunday
-    = f.input :available_monday
-    = f.input :available_tuesday
-    = f.input :available_wednesday
-    = f.input :available_thursday
-    = f.input :available_friday
-    = f.input :available_saturday
-    = f.input :user_id
-    = f.input :zipcode_id
-    = f.input :image
+  = f.input :name
+  = f.association :genres
+  = f.input :image, :as => :file
+  = f.input :website
+  = f.input :phone
+
+  = f.input :covers_percentage,
+    :collection => ["All covers", "Mix of covers and originals", "All originals"],
+    :label => "Covers vs. Originals",
+    :hint => "(Does this artist/group play all originals, all covers, or a mix?)"
+  .control-group.text.optional
+    %label.boolean.optional.control-label Weekly Availability
+    .controls
+      - %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].each do |day|
+        .checkbox.inline
+          = check_box :artist, "available_#{day.downcase}".to_sym
+          = day
+  -# = f.input :zipcode_id
+  = f.input :description, :input_html => { :class => 'standard-desc' }
 
   .form-actions
-    = f.button :submit
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")),
+      user_artists_path(@user), :class => 'btn'
