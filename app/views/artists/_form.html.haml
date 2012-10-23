@@ -12,7 +12,6 @@
     :as => :autocomplete,
     :url => "/zipcode/autocomplete_zipcode_zipcode",
     :required => true
-
   = f.input :covers_percentage,
     :collection => ["All covers", "Mix of covers and originals", "All originals"],
     :label => "Covers vs. Originals",
@@ -24,7 +23,11 @@
         .checkbox.inline
           = check_box :artist, "available_#{day.downcase}".to_sym
           = day
-  -# = f.input :zipcode_id
+  .control-group.text.optional.blackout-dates
+    %label.boolean.optional.control-label Blackout Dates
+    = f.fields_for :blackout_dates do |builder|
+      = render 'blackout_date_fields', f: builder
+    = link_to_add_fields "Add Blackout Date", f, :blackout_dates
   = f.input :description, :input_html => { :class => 'standard-desc' }
 
   .form-actions

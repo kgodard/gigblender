@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require autocomplete-rails
 //= require chosen-jquery
+//= require jquery.ui.datepicker
 //= require_tree .

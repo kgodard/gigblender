@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require chosen
+ *= require jquery.ui.datepicker
  *= require_tree .
 */
 
@@ -78,4 +79,10 @@ ul.ui-autocomplete {
 .standard-desc {
   width: 500px;
   height: 200px;
+}
+
+a.add_fields {
+  display: inline-block;
+  margin-left: 160px;
+  padding-top: 5px;
 }
