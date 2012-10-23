@@ -6,6 +6,12 @@
   = f.input :image, :as => :file
   = f.input :website
   = f.input :phone
+  = f.input :zip_name,
+    :as => :string,
+    :label => 'Zipcode',
+    :as => :autocomplete,
+    :url => "/zipcode/autocomplete_zipcode_zipcode",
+    :required => true
 
   = f.input :covers_percentage,
     :collection => ["All covers", "Mix of covers and originals", "All originals"],

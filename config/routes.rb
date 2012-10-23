@@ -8,6 +8,8 @@ Gigblender::Application.routes.draw do
     resources :artists
   end
 
+  get 'zipcode/autocomplete_zipcode_zipcode'
+
   # authenticated :user do
   #   root :to => 'home#index'
   # end

@@ -2,6 +2,8 @@ require 'csv'
 class Zipcode < ActiveRecord::Base
   attr_accessible :latitude, :longitude, :primary_city, :state, :timezone, :zipcode
 
+  has_many :artists
+
   def display_name
     "#{primary_city}, #{state}, #{zipcode}"
   end
