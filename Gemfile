@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'mysql2'
@@ -37,6 +37,10 @@ end
 group :test do
   gem "capybara", ">= 1.1.2"
   gem "email_spec", ">= 1.2.1"
+  gem "database_cleaner"
+  gem "guard-rspec"
+  gem "spork"
+  gem "guard-spork"
 end
 
 group :development, :test do
