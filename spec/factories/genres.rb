@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :genre do
-    name "MyString"
+    name "Punk Rock"
   end
 end

@@ -2,20 +2,20 @@
 
 FactoryGirl.define do
   factory :artist do
-    name "MyString"
-    website "MyString"
-    phone "MyString"
-    covers_percentage "MyString"
-    description "MyText"
-    available_sunday false
-    available_monday false
-    available_tuesday false
-    available_wednesday false
-    available_thursday false
-    available_friday false
-    available_saturday false
-    user_id 1
-    zipcode_id 1
-    image "MyString"
+    sequence(:name) { |n| "Artist #{n}" }
+    sequence(:website) { |n| "www.artist_#{n}.com" }
+    phone "333-333-3333"
+    covers_percentage "no covers"
+    description "We are super awesome"
+    available_sunday true
+    available_monday true
+    available_tuesday true
+    available_wednesday true
+    available_thursday true
+    available_friday true
+    available_saturday true
+    association :user
+    association :zipcode
+    image ""
   end
 end

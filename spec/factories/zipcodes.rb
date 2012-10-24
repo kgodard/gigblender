@@ -2,11 +2,11 @@
 
 FactoryGirl.define do
   factory :zipcode do
-    zipcode "MyString"
-    primary_city "MyString"
-    state "MyString"
-    timezone "MyString"
-    latitude "MyString"
-    longitude "MyString"
+    zipcode "80516"
+    primary_city "Erie"
+    state "CO"
+    timezone "US/Mountain"
+    latitude "0"
+    longitude "0"
   end
 end

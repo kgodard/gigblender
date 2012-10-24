@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :blackout_date do
-    bdate "2012-10-23"
-    artist_id 1
+    bdate { 30.days.from_now }
+    association :artist
   end
 end
