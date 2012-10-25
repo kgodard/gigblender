@@ -7,4 +7,9 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields btn btn-mini btn-info", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def artists_link
+    path = user_signed_in? ? user_artists_path(current_user) : artists_path
+    link_to 'Artists', path
+  end
 end
