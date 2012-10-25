@@ -32,6 +32,9 @@ group :development do
   gem "haml-rails", ">= 0.3.5"
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 2.3.1"
+  gem 'rb-inotify', '~> 0.8.8', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'growl', :require => false
 end
 
 group :test do
@@ -41,7 +44,6 @@ group :test do
   gem "guard-rspec"
   gem "spork"
   gem "guard-spork"
-  gem 'rb-inotify', '~> 0.8.8'
 end
 
 group :development, :test do
