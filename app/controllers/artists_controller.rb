@@ -8,6 +8,11 @@ class ArtistsController < InheritedResources::Base
 
   # def index
   #   debugger
+  #   @artists = if params[:user_id].present?
+  #     User.find(params[:user_id]).artists
+  #   else
+  #     Artist.all
+  #   end
   # end
 
   # protected

@@ -13,9 +13,9 @@
         %td= artist.website
         %td
           - if user_signed_in?
-            = link_to 'Edit', edit_user_artist_path(@user, artist), :class => 'btn btn-mini'
-            = link_to 'Destroy', user_artist_path(@user, artist), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
+            = link_to 'Edit', edit_user_artist_path(current_user, artist), :class => 'btn btn-mini'
+            = link_to 'Destroy', user_artist_path(current_user, artist), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger'
 
 %br
 
-= link_to 'New Artist', new_user_artist_path(@user), :class => 'btn btn-primary' if user_signed_in?
+= link_to 'New Artist', new_user_artist_path(current_user), :class => 'btn btn-primary' if user_signed_in?
