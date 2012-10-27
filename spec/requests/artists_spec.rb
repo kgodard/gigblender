@@ -20,7 +20,8 @@ describe "Artists", :focus do
 
       before :each do
         @user = create_logged_in_user
-        FactoryGirl.create(:artist, :name => 'Awesome', :user => @user)
+        @first_artist = artists.first
+        @artist = FactoryGirl.create(:artist, :name => 'Awesome', :user => @user)
       end
 
       context "/artists" do
@@ -29,6 +30,16 @@ describe "Artists", :focus do
           artists.each do |artist|
             page.has_link?(artist.name).should be_true
           end
+        end
+
+        it "contains edit links for artists belonging to user" do
+          visit artists_path
+          all('a').map {|a| a[:href] }.should include edit_user_artist_path(@user, @artist)
+        end
+
+        it "does not contain edit links for artists NOT belonging to user" do
+          visit artists_path
+          all('a').map {|a| a[:href] }.should_not include edit_user_artist_path(@user, @first_artist)
         end
       end
     end
