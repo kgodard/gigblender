@@ -20,3 +20,8 @@ jQuery ->
         $(this).datepicker(
           dateFormat: 'yy-mm-dd'
         ).datepicker( "show" )
+
+  $('#on_date').datepicker
+    dateFormat: 'yy-mm-dd'
+
+  $('#in_genres').chosen()
