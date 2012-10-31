@@ -35,6 +35,7 @@ group :development do
   gem 'rb-inotify', '~> 0.8.8', :require => false
   gem 'rb-fsevent', :require => false
   gem 'growl', :require => false
+  gem 'bullet'
 end
 
 group :test do
