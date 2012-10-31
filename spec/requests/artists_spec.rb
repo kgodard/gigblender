@@ -4,12 +4,17 @@ include RequestHelpers
 describe "Artists", :focus do
   let!(:artists) { generate_artists }
 
-  describe "GET /artists" do
-    it "is possible to list artists without being logged in" do
-      visit root_path
-      click_link 'Artists'
-      artists.each do |artist|
-        page.has_link?(artist.name).should be_true
+  describe "not logged in" do
+    describe "artists index page" do
+      it "lists artists without being logged in" do
+        visit root_path
+        click_link 'Artists'
+        artists.each do |artist|
+          page.has_link?(artist.name).should be_true
+          page.has_content?(artist.genre_list).should be_true
+          page.has_content?(artist.home_city).should be_true
+          page.has_content?(artist.website).should be_true
+        end
       end
     end
   end
@@ -40,6 +45,15 @@ describe "Artists", :focus do
         it "does not contain edit links for artists NOT belonging to user" do
           visit artists_path
           all('a').map {|a| a[:href] }.should_not include edit_user_artist_path(@user, @first_artist)
+        end
+      end
+
+      context "My Artists link" do
+        it "displays artists belonging to current user" do
+          visit root_path
+          click_link "My Artists"
+          page.has_link?(@artist.name).should be_true
+          page.has_link?(@first_artist.name).should be_false
         end
       end
     end
