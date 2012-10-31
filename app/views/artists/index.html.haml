@@ -1,16 +1,29 @@
 %h1 Listing Artists
+= form_tag(artists_path, :method => :get, :class => 'form-inline') do
+  -# = label_tag(:on_date, "date")
+  = text_field_tag(:on_date, params[:on_date])
+  -# = label_tag(:in_genres, "genres")
+  = select_tag(:in_genres, options_from_collection_for_select(Genre.all, "name", "name", params[:in_genres]), :multiple => true)
+  -# = label_tag(:in_state, "state")
+  = select_tag(:in_state, options_for_select(us_states, params[:in_state]), :include_blank => true)
+  -# .form-actions
+  = submit_tag 'Search', :class => 'btn btn-primary'
 
 %table.table.table-striped.table-bordered
   %thead
     %tr
       %th Name
+      %th Genres
       %th Website
+      %th Home City
       %th
   %tbody
     - @artists.each do |artist|
       %tr
         %td= link_to artist.name, artist
-        %td= artist.website
+        %td= artist.genre_list
+        %td= link_to artist.website, artist.website unless artist.website.blank?
+        %td= artist.home_city
         %td
           - if user_signed_in? && current_user.artists.include?(artist)
             = link_to 'Edit', edit_user_artist_path(current_user, artist), :class => 'btn btn-mini'
