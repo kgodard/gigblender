@@ -15,6 +15,39 @@ class Artist < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  scope :in_genres, lambda {|*genres|
+    joins('inner join artists_genres ag on artists.id = ag.artist_id').
+    joins('inner join genres g on g.id = ag.genre_id')
+    .where('g.name in (?)', genres.flatten)
+    .uniq
+  }
+
+  scope :in_state, lambda {|state|
+    joins(:zipcode).where('zipcodes.state = ?', state)
+  }
+
+  scope :on_date, lambda {|this_date|
+    this_date = this_date.is_a?(String) ? Date.parse(this_date) : this_date
+    joins('left outer join blackout_dates bd on artists.id = bd.artist_id')
+    .where('? NOT IN (SELECT bdate FROM blackout_dates WHERE artist_id = artists.id)', this_date)
+    .on_day(this_date)
+    .uniq
+  }
+
+  scope :on_day, lambda {|this_date|
+    where("available_#{this_date.strftime('%A').downcase}".to_sym => true)
+  }
+
+  def home_city
+    if zipcode.present?
+      "#{zipcode.primary_city}, #{zipcode.state}"
+    end
+  end
+
+  def genre_list
+    genres.map(&:name).join(", ")
+  end
+
   def zip_name
     zipcode.try(:zipcode)
   end
