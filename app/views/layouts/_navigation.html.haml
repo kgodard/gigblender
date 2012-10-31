@@ -1,6 +1,5 @@
 = link_to "Gigblender", root_path, :class => 'brand'
-%ul.nav
-  %li= artists_link
+%ul.nav.pull-right
   - if user_signed_in?
     %li
       = link_to 'Logout', destroy_user_session_path, :method=>'delete'
@@ -13,3 +12,8 @@
   - else
     %li
       = link_to 'Sign up', new_user_registration_path
+%p.navbar-text.pull-right
+  - if user_signed_in?
+    = link_to "My Artists", user_artists_path(current_user)
+%ul.nav
+  %li= artists_link
