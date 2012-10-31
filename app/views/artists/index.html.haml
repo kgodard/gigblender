@@ -1,11 +1,11 @@
 %h1 Listing Artists
 = form_tag(artists_path, :method => :get, :class => 'form-inline') do
   -# = label_tag(:on_date, "date")
-  = text_field_tag(:on_date, params[:on_date])
+  = text_field_tag(:on_date, params[:on_date], :placeholder => "Date")
   -# = label_tag(:in_genres, "genres")
   = select_tag(:in_genres, options_from_collection_for_select(Genre.all, "name", "name", params[:in_genres]), :multiple => true)
   -# = label_tag(:in_state, "state")
-  = select_tag(:in_state, options_for_select(us_states, params[:in_state]), :include_blank => true)
+  = select_tag(:in_state, options_for_select(us_states, params[:in_state]), :include_blank => true, :prompt => "Select a state")
   -# .form-actions
   = submit_tag 'Search', :class => 'btn btn-primary'
 
