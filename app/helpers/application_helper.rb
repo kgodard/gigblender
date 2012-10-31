@@ -9,7 +9,6 @@ module ApplicationHelper
   end
 
   def artists_link
-    path = user_signed_in? ? user_artists_path(current_user) : artists_path
-    link_to 'Artists', path
+    link_to 'Artists', artists_path
   end
 end
