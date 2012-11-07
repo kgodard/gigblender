@@ -1,7 +1,7 @@
-# require 'spec_helper'
+require 'spec_helper'
 include RequestHelpers
 
-describe "Artists", :focus do
+describe "Artists" do
   let!(:artists) { generate_artists }
 
   describe "not logged in" do
