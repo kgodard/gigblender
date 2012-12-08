@@ -6,8 +6,11 @@
 # STRIPE_API_KEY: EdAvEPVEC3LuaTg5Q3z6WbDVqZlcBQ8Z
 # STRIPE_PUBLIC_KEY: pk_BRgD57O8fHja9HxduJUszhef6jCyS
 
-MANDRILL_USERNAME: mandrill login
-MANDRILL_API_KEY: mandrill api key
+MANDRILL_USERNAME: mandrill_login
+MANDRILL_API_KEY: mandrill_api_key
+
+TWITTER_KEY: twitter_consumer_key
+TWITTER_SECRET: twitter_app_consumer_secret
 
 # namespace by Rails.env
 # development:
