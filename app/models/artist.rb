@@ -55,4 +55,31 @@ class Artist < ActiveRecord::Base
   def zip_name=(name)
     self.zipcode = Zipcode.find_by_zipcode(name) if name.present?
   end
+
+  def self.seed_data!
+    self.delete_all
+
+    zip_ids = Zipcode.all.map(&:id)
+    genres = Genre.all
+    covers_percentage = ["All covers", "Mix of covers and originals", "All originals"]
+    step_size = 20
+
+    (step_size..zip_ids.size).step(step_size) do |zip_id_index|
+      artist = Artist.create(
+        :name => Faker::ArtistName.artist_name,
+        :zipcode_id => zip_ids[zip_id_index],
+        :phone => Faker::PhoneNumber.phone_number,
+        :website => Faker::Internet.domain_name,
+        :covers_percentage => covers_percentage.sample
+      )
+      my_genres = genres.sample(4)
+      artist.genres = my_genres
+      artist.description = generate_description_from_genres(my_genres)
+      artist.save!
+    end
+  end
+
+  def self.generate_description_from_genres(my_genres)
+    description = "We are the band you've never heard of that plays all the best #{my_genres.map(&:name).to_sentence} songs."
+  end
 end
