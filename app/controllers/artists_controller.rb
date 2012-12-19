@@ -5,9 +5,10 @@ class ArtistsController < InheritedResources::Base
   # has_scope :limit, :default => 10
   has_scope :in_state
   has_scope :on_date
+  has_scope :page, :default => 1
 
   protected
   def collection
-    @artists ||= end_of_association_chain.includes(:genres, :zipcode)
+    @artists ||= end_of_association_chain.page(params[:page])
   end
 end

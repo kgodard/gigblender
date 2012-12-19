@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121023134815) do
+ActiveRecord::Schema.define(:version => 20121219031124) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,9 @@ ActiveRecord::Schema.define(:version => 20121023134815) do
     t.integer "artist_id"
     t.integer "genre_id"
   end
+
+  add_index "artists_genres", ["artist_id"], :name => "index_artists_genres_on_artist_id"
+  add_index "artists_genres", ["genre_id"], :name => "index_artists_genres_on_genre_id"
 
   create_table "blackout_dates", :force => true do |t|
     t.date     "bdate"

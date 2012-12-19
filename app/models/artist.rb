@@ -15,6 +15,8 @@ class Artist < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
+  default_scope order('artists.name').includes(:genres, :zipcode)
+
   scope :in_genres, lambda {|*genres|
     joins('inner join artists_genres ag on artists.id = ag.artist_id').
     joins('inner join genres g on g.id = ag.genre_id')
