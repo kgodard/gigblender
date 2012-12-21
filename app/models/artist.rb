@@ -68,7 +68,7 @@ class Artist < ActiveRecord::Base
 
     (step_size..zip_ids.size).step(step_size) do |zip_id_index|
       artist = Artist.create(
-        :name => Faker::ArtistName.artist_name,
+        :name => generate_name,
         :zipcode_id => zip_ids[zip_id_index],
         :phone => Faker::PhoneNumber.phone_number,
         :website => Faker::Internet.domain_name,
@@ -83,5 +83,14 @@ class Artist < ActiveRecord::Base
 
   def self.generate_description_from_genres(my_genres)
     description = "We are the band you've never heard of that plays all the best #{my_genres.map(&:name).to_sentence} songs."
+  end
+
+  private
+
+  def self.generate_name
+    begin
+      artist_name = Faker::ArtistName.artist_name
+    end while Artist.exists?(:name => artist_name)
+    artist_name
   end
 end
