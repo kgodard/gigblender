@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/BethM/faker.git
-  revision: e470fcf27b3792abf2a0b28490e285ef902662c7
+  revision: 0d40a4f7bd3972d10d90bd4adb3ccf3ac441e7c2
   specs:
     faker (1.1.2)
       i18n (~> 0.5)

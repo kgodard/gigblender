@@ -19,18 +19,18 @@ ActiveRecord::Schema.define(:version => 20121219031124) do
     t.string   "phone"
     t.string   "covers_percentage"
     t.text     "description"
-    t.boolean  "available_sunday"
-    t.boolean  "available_monday"
-    t.boolean  "available_tuesday"
-    t.boolean  "available_wednesday"
-    t.boolean  "available_thursday"
-    t.boolean  "available_friday"
-    t.boolean  "available_saturday"
+    t.boolean  "available_sunday",    :default => true
+    t.boolean  "available_monday",    :default => true
+    t.boolean  "available_tuesday",   :default => true
+    t.boolean  "available_wednesday", :default => true
+    t.boolean  "available_thursday",  :default => true
+    t.boolean  "available_friday",    :default => true
+    t.boolean  "available_saturday",  :default => true
     t.integer  "user_id"
     t.integer  "zipcode_id"
     t.string   "image"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   create_table "artists_genres", :id => false, :force => true do |t|
