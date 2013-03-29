@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'mysql2'
 gem 'jquery-rails'
-gem 'thin', '>= 1.5.0'
 gem 'haml', '>= 3.1.7'
 gem 'bootstrap-sass', '>= 2.1.0.0'
 gem 'hominid', '>= 3.0.5'
@@ -30,6 +29,7 @@ group :assets do
 end
 
 group :development do
+  gem 'thin', '>= 1.5.0'
   gem 'haml-rails', '>= 0.3.5'
   gem 'hpricot', '>= 0.8.6'
   gem 'ruby_parser', '>= 2.3.1'
