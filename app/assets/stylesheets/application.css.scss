@@ -14,6 +14,12 @@
  *= require_tree .
 */
 
+@import url(http://fonts.googleapis.com/css?family=Rancho&text=Gigblender);
+
+.navbar .brand {
+  font-family: 'Rancho', serif;
+}
+
 .content {
   background-color: #eee;
   padding: 20px;

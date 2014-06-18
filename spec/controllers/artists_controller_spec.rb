@@ -24,7 +24,9 @@ describe ArtistsController do
   # Artist. As you add validations to Artist, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    {
+      :name => "foobar"
+    }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -97,7 +99,7 @@ describe ArtistsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Artist.any_instance.stub(:save).and_return(false)
         post :create, {:artist => {}}, valid_session
-        response.should render_template("new")
+        response.should redirect_to new_user_artist_path
       end
     end
   end
